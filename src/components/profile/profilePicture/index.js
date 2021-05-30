@@ -1,16 +1,17 @@
 import React from 'react';
-import { View, Text, Image} from 'react-native';
+import { View, Text, Image, Dimensions} from 'react-native';
 
 const ProfilePicture=(props) => {
     const data=props;
+    const win= Dimensions.get('window');
     return(
-        <View style={{marginTop: 10}}>
+        <View>
             <Image
                 source={{uri : props.img}}
-                style={{height: 500, aspectRatio: 2/3, alignSelf: 'center', borderRadius: 20}}
+                style={{width: .97*win.width, aspectRatio: 2/3, alignSelf: 'center', borderRadius: 20}}
             />
-            <Text style ={{fontSize: 20, color: '#fff', position: 'absolute', bottom: '5%', left: '5%'}}>
-                Abhishek, 20
+            <Text style ={{fontSize: 22, fontWeight: 'bold', color: '#fff', position: 'absolute', bottom: '5%', left: '5%'}}>
+                {props.name}, {props.age.toString()}
             </Text>
         </View>
     );
